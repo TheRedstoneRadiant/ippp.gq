@@ -48,6 +48,13 @@
   <body>
     <main>
       <img src="img/ippp logo.png" alt="IPPP!" />
+      <form id="form">
+        <label for="input">Get info for an IP address:</label>
+        <br /><br />
+        <input id="input" placeholder="IP address"/>
+        <input type="submit" value="Search!">
+        <br /><br /><br />
+      </form>
       <% if (!success) { %>
       <div class="error">Invalid IP Address!</div>
       <% } else { %>
@@ -64,5 +71,11 @@
       </ul>
       <% } %>
     </main>
+    <script type="text/javascript">
+      document.querySelector("#form").onsubmit = (e) => {
+        e.preventDefault();
+        window.location.replace(`/${document.querySelector("#input").value}`);
+      }
+    </script>
   </body>
 </html>
